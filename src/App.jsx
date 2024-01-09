@@ -17,6 +17,11 @@ const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=imperial&q="
     <img src="" alt="" />
     <h1 className="temp">22° F</h1>
     <h2 className="city">Austin</h2>
+    <div className="details">
+      <div className="col">
+        <img src="" alt="" />
+      </div>
+    </div>
   </div>
 </div>
 
