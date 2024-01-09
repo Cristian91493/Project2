@@ -14,19 +14,23 @@ import "./App.css"
 function App() {
 const key = import.meta.env.VITE_KEY
 
+const [wicon,setWicon]= useState(cloud_icon)
+
 const search = async () => {
 
-  const [wicon,setWicon]= useState(cloud_icon)
 
   const element=document.getElementsByClassName("cityInput")
   if(element[0].value==='')
   {
     return 0
   }
-  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${element[0].value}&appid=${key}`
+  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${element[0].value}&appid=d4079964a3cd9077c9d812e80619f6f3`
 
   let response = await fetch(apiUrl)
-  let data = response.json()
+  let data = await response.json()
+  console.log(data)
+
+
   const humidity = document.getElementsByClassName("humidity")
   console.log(humidity)
   const wind = document.getElementsByClassName("wind")
@@ -90,14 +94,14 @@ const search = async () => {
     <h2 className="city">Austin</h2>
     <div className="details">
       <div className="col">
-        <img src="humidity.png" alt="" />
+        <img src={humidity_icon} alt="" />
         <div>
           <p className="humidity">50%</p>
           <p>Humidity</p>
         </div>
       </div>
       <div className="col">
-        <img src="wind.png" alt="" />
+        <img src={wind_icon} alt="" />
         <div>
           <p className="wind">15 mph</p>
           <p>Wind Speed</p>
