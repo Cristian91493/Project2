@@ -1,14 +1,27 @@
 
 function App() {
 const key = import.meta.env.VITE_KEY
-const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=imperial&q="
-  return (
+
+const search = async () => {
+  const element=document.getElementsByClassName("cityInput")
+  if(element[0].value==='')
+  {
+    return 0
+  }
+  let apiUrl=`https://api.openweathermap.org/data/2.5/weather?units=imperial&q=${element[0].value}&appid=${key}`
+
+  let response = await fetch(apiUrl)
+  let data = response.json()
+}
+
+ return (
 <div className="card">
-  <div className="search">
-    <input type="text" placeholder="Enter City Name"/>
-    <button>
+  <div className="search" >
+    <input className="cityInput" type="text" placeholder="Enter City Name"/>
+    <div className="search-icon" onClick={()=>{search()}}>
       <img src="assets/search.png" alt="" />
-    </button>
+    </div>
+    
   </div>
   <div className="error" style={{display: "block"}}>
     <p>Invalid city name</p>
