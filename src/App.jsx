@@ -10,6 +10,9 @@ const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=imperial&q="
       <img src="assets/search.png" alt="" />
     </button>
   </div>
+  <div className="error" style={"display: block"}>
+    <p>Invalid city name</p>
+  </div>
 </div>
 
   )
