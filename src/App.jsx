@@ -1,8 +1,23 @@
+import { useState } from "react"
+import search_icon from "./assets/images/search.png"
+import clear_icon from "./assets/images/search.png"
+import cloud_icon from "./assets/images/clouds.png"
+import drizzle_icon from "./assets/images/drizzle.png"
+import humidity_icon from "./assets/images/humidity.png"
+import mist_icon from "./assets/images/mist.png"
+import rain_icon from "./assets/images/rain.png"
+import snow_icon from "./assets/images/snow.png"
+import wind_icon from "./assets/images/wind.png"
+
+
 
 function App() {
 const key = import.meta.env.VITE_KEY
-console.log(key)
+
 const search = async () => {
+
+  const [wicon,setWicon]= useState(cloud_icon)
+
   const element=document.getElementsByClassName("cityInput")
   if(element[0].value==='')
   {
@@ -12,6 +27,49 @@ const search = async () => {
 
   let response = await fetch(apiUrl)
   let data = response.json()
+  const humidity = document.getElementsByClassName("humidity")
+  console.log(humidity)
+  const wind = document.getElementsByClassName("wind")
+  const temperature = document.getElementsByClassName("temp")
+  const location = document.getElementsByClassName("city")
+
+  humidity[0].innerHTML = data.main.humidity
+  wind[0].innerHTML = data.wind.speed
+  temperature[0].innerHTML = data.main.temp
+  location[0].innerHTML = data.name
+
+  if(data.weather[0].icon==="01d" || data.weather[0].icon==="01n")
+  {
+    setWicon(clear_icon)
+  }
+  else if(data.weather[0].icon==="02d" || data.weather[0].icon==="02n")
+  {
+    setWicon(cloud_icon)
+  }
+  else if(data.weather[0].icon==="03d" || data.weather[0].icon==="03n")
+  {
+    setWicon(drizzle_icon)
+  }
+  else if(data.weather[0].icon==="04d" || data.weather[0].icon==="04n")
+  {
+    setWicon(drizzle_icon)
+  }
+  else if(data.weather[0].icon==="09d" || data.weather[0].icon==="09n")
+  {
+    setWicon(rain_icon)
+  }
+  else if(data.weather[0].icon==="10d" || data.weather[0].icon==="10n")
+  {
+    setWicon(rain_icon)
+  }
+  else if(data.weather[0].icon==="13d" || data.weather[0].icon==="13n")
+  {
+    setWicon(snow_icon)
+  }
+  else
+  {
+    setWicon(clear_icon)
+  }
 }
 
  return (
@@ -19,7 +77,7 @@ const search = async () => {
   <div className="search" >
     <input className="cityInput" type="text" placeholder="Enter City Name"/>
     <div className="search-icon" onClick={()=>{search()}}>
-      <img src="assets/search.png" alt="" />
+      <img src={search_icon} alt="" />
     </div>
     
   </div>
