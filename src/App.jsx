@@ -5,7 +5,7 @@ const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=imperial&q="
   return (
 <div className="card">
   <div className="search">
-    <input type="text" />
+    <input type="text" placeholder="Enter City Name"/>
   </div>
 </div>
 
