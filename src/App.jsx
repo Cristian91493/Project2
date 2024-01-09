@@ -19,7 +19,10 @@ const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=imperial&q="
     <h2 className="city">Austin</h2>
     <div className="details">
       <div className="col">
-        <img src="" alt="" />
+        <img src="humidity.png" alt="" />
+        <div>
+          <p className="humidity">50%</p>
+        </div>
       </div>
     </div>
   </div>
