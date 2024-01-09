@@ -8,7 +8,7 @@ import mist_icon from "./assets/images/mist.png"
 import rain_icon from "./assets/images/rain.png"
 import snow_icon from "./assets/images/snow.png"
 import wind_icon from "./assets/images/wind.png"
-
+import "./App.css"
 
 
 function App() {
