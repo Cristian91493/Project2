@@ -22,6 +22,14 @@ const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=imperial&q="
         <img src="humidity.png" alt="" />
         <div>
           <p className="humidity">50%</p>
+          <p>Humidity</p>
+        </div>
+      </div>
+      <div className="col">
+        <img src="wind.png" alt="" />
+        <div>
+          <p className="wind">15 mph</p>
+          <p>Wind Speed</p>
         </div>
       </div>
     </div>
