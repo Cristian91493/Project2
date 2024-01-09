@@ -1,7 +1,7 @@
 
 function App() {
 const key = import.meta.env.VITE_KEY
-
+console.log(key)
 const search = async () => {
   const element=document.getElementsByClassName("cityInput")
   if(element[0].value==='')
